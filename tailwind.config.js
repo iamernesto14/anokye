@@ -45,6 +45,8 @@ export default {
         'accent-300': '#262626',
         'accent-200': '#4D4D4D',
         'accent-100': '#666666',
+        'mobile-100': '#bfbfb1',
+        'mobile-200': '#393632'
       },
     }
   },

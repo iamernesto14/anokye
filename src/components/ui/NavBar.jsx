@@ -52,7 +52,7 @@ export default function NavBar({ sectionRefs }) {
   return (
     <header
       ref={navBar}
-      className="top-0 z-50 flex w-full -translate-y-full items-center justify-between bg-secondary-100 px-5 py-3"
+      className="top-0 z-50 md:flex w-full -translate-y-full items-start md:items-center justify-between bg-secondary-100 px-5 py-3"
     >
       {/* logo */}
       <a href="#hero" aria-label="Logo" className="z-50 cursor-pointer">
@@ -72,22 +72,24 @@ export default function NavBar({ sectionRefs }) {
           />
         </svg>
       </a>
-      <nav className=" space-x-7 font-grotesk text-body-3 sm:block">
-        <a href="#about" className="group relative hidden md:inline-block">
+      <nav className=" md:space-x-7 hidden font-grotesk text-body-3 md:flex flex-col md:flex-row md:items-center">
+        <a href="#about" className="group relative md:inline-block">
           <span>about</span>
           <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
         </a>
-        <a href="#services" className="group relative hidden md:inline-block">
+        <a href="#services" className="group relative md:inline-block">
           <span>services</span>
           <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
         </a>
-        <a href="#works" className="group relative hidden md:inline-block">
+        <a href="#works" className="group relative md:inline-block">
           <span>projects</span>
           <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
         </a>
+
+        {/* let's talk section */}
         <a
           ref={cta}
-          className="button group relative hover:bg-transparent"
+          className="button group relative hover:bg-transparent hidden md:inline-block"
           href="#contact"
         >
           <span className="relative w-fit">
@@ -99,3 +101,5 @@ export default function NavBar({ sectionRefs }) {
     </header>
   );
 }
+
+

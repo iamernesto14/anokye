@@ -1,8 +1,8 @@
 import kitchenQuest from "/src/assets/images/KitchenQuest.webp";
 import restCountries from "/src/assets/images/RestCountries.webp";
-import acc from "/src/assets/images/acc-square.webp";
+// import acc from "/src/assets/images/acc-square.webp";
 import codecompass from "/src/assets/images/codecompass.webp";
-import sunnyside from "/src/assets/images/sunnyside-desktop.webp";
+// import sunnyside from "/src/assets/images/sunnyside-desktop.webp";
 import Projects from "../ui/Projects";
 import Heading from "../ui/Heading";
 
@@ -43,7 +43,7 @@ export default function Works({ forwardedRef }) {
         <div className="col-span-1 pt-0 md:col-span-5 md:pt-80">
           <Projects
             link="https://realbusinessaccountants.netlify.app"
-            img={acc}
+            img={kitchenQuest}
             alt="real business accountant project mockup"
             name="real business accountants"
             type="Web Design • Frontend Development"
@@ -65,7 +65,7 @@ export default function Works({ forwardedRef }) {
         <div className="col-span-1 h-fit md:col-span-4">
         <Projects
             link="https://sunnysidechallenge.netlify.app"
-            img={sunnyside}
+            img={kitchenQuest}
             alt="sunnyside project mockup"
             name="SUNNYSIDE LANDING PAGE"
             type="Frontend Development"
