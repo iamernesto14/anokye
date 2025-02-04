@@ -7,187 +7,170 @@ import Heading from "../ui/Heading";
 export default function Contact() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
-  const heading = useRef(null)
-  const body = useRef(null)
-  const contactSection = useRef(null)
+  const heading = useRef(null);
+  const body = useRef(null);
+  const contactSection = useRef(null);
 
   useEffect(() => {
     ScrollTrigger.create({
       trigger: contactSection.current,
-      start:"180px bottom",
-
-      // markers: true,
+      start: "180px bottom",
       animation: gsap
         .timeline()
-        .to(heading.current, { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 }, 0)
-        .to(body.current, { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 }, 0.2),
+        .to(
+          heading.current,
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power4.out",
+            duration: 1.25,
+          },
+          0
+        )
+        .to(
+          body.current,
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power4.out",
+            duration: 1.25,
+          },
+          0.2
+        ),
 
       toggleActions: "play none none none",
     });
     ScrollTrigger.refresh();
-
-  }, [contactSection])
+  }, [contactSection]);
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setTime(new Date().toLocaleTimeString());
     }, 1000);
-  });
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
       id="contact"
-      className="my-[10%] overflow-hidden"
+      className="mt-[10%] mb-16 overflow-hidden"
       aria-label="contact me"
     >
-      
-      
       <Heading title="Contact" />
-      <div ref={contactSection} className="mt-10 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
+      <div
+        ref={contactSection}
+        className="mt-10 flex flex-col gap-20 md:grid md:grid-cols-1"
+      >
         <div className="col-span-4">
-          <h3 ref={heading} className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight translate-y-10 opacity-0">
-            Have an awesome idea? Let&apos;s bring it to life.
-          </h3>
-          <p ref={body} className="mt-4 max-w-md 2xl:max-w-2xl text-body-2 2xl:text-4xl text-accent-100 translate-y-10 opacity-0">
-            I am currently available for freelance work. I am accepting new projects starting from January 2025.
-          </p>
-          <form
-            name="contact"
-            action="/contact"
-            autoComplete="off"
-           
-            className="mt-10 font-grotesk"
-            method="POST" 
-          >
-            <input type="hidden" name="form-name" value="contact"/>
-            <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2">
-              <div className="relative z-0">
-                  <input
-                    required
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                    placeholder=" "
-                  />
-                <label
-                  htmlFor="name"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                >
-                  Your name
-                </label>
-              </div>
-              <div className="relative z-0">
-                <input
-                  required
-                  type="text"
-                  name="email"
-                  id="email"
-                  className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                  placeholder=" "
-                />
-                <label
-                  htmlFor="email"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                >
-                  Your email
-                </label>
-              </div>
-              <div className="relative z-0 sm:col-span-2">
-                <textarea
-                  required
-                  id="message"
-                  name="message"
-                  rows="5"
-                  className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                  placeholder=" "
-                ></textarea>
-                <label
-                  htmlFor="message"
-                  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
-                >
-                  Your message
-                </label>
-              </div>
+          <div className="flex h-[650px] w-full flex-col items-center justify-between bg-black px-10 pb-5 pt-28 text-accent-100 md:h-[500px]">
+            <div className="text-center">
+              <p className="mb-7 text-lg">(Need an unfair advantage?)</p>
+              <h3 className="text-7xl font-semibold">LET'S MAKE IT HAPPEN</h3>
+              <button className="mt-7">
+                <a className="rounded-full bg-accent-200 px-20 py-5 text-white hover:bg-accent-300" href="mailto:eernesto211@gmail.com">Let's Talk</a>
+              </button>
             </div>
-            <button
-              type="submit"
-              className="button group mt-10 border duration-200 hover:border-accent-400 hover:bg-transparent"
-            >
-              <span className="relative">
-                <span className="absolute bottom-2 h-1 w-0 bg-secondary-700 opacity-90 duration-300 ease-out group-hover:w-full"></span>
-                <span className="group-hover:text-accent-400">
-                  Send Message
-                </span>
+
+            <div className="text-base-small flex flex-col items-center">
+              <span className="text-secondary-50 font-bold uppercase">
+                For further inquiries
               </span>
-            </button>
-          </form>
+              <a href="mailto:eernesto211@gmail.com">
+                <span>⮡ eernesto211@gmail.com</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 text-accent-300 sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1">
-          <div className="space-y-3 ">
-            <h4 className="text-body-1 2xl:text-4xl font-semibold">Contact Details</h4>
-            <div className="flex flex-col space-y-3 text-body-2 2xl:text-3xl">
-              <a
-                href="mailto:eernesto211@gmail.com"
-                className="group relative w-fit cursor-pointer"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>eernesto211@gmail.com</span>
-                <span className="absolute bottom-0 left-0 h-[0.12em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
-              </a>
-             
+
+        <div className="col-span-2 flex w-[100%] flex-col gap-8 text-accent-300 md:flex-row">
+          {/* Navigation Menu */}
+          <div className="flex flex-row gap-8 text-accent-300 md:w-[100%]">
+            <div className="flex-1 space-y-2">
+              <h4 className="2xl:text-4x text-body-1 font-semibold">Menu</h4>
+              <hr className="w-full bg-accent-200" />
+              <div className="flex flex-col items-start justify-start space-y-1 text-body-2 2xl:text-3xl">
+                <button
+                  onClick={() => handleScroll("about")}
+                  className="cursor-pointer transition duration-300 hover:text-yellow-500"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => handleScroll("work")}
+                  className="cursor-pointer transition duration-300 hover:text-yellow-500"
+                >
+                  Work
+                </button>
+                <button
+                  onClick={() => handleScroll("service")}
+                  className="cursor-pointer transition duration-300 hover:text-yellow-500"
+                >
+                  Service
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="space-y-3 ">
-            <h4 className="text-body-1 2xl:text-4xl font-semibold">My Digital Spaces</h4>
-            <div className="space-y-3 text-body-2 2xl:text-3xl">
-              
-              <a
-                href="https://github.com/iamernesto14"
-                className="group flex items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon icon="mdi:github" color="#666" />
-                <div className="relative">
+
+            {/* Socials */}
+            <div className="flex-1 space-y-2">
+              <h4 className="text-body-1 font-semibold 2xl:text-4xl">
+                Socials
+              </h4>
+              <hr className="w-full bg-accent-200" />
+              <div className="space-y-1 text-body-2 2xl:text-3xl">
+                <a
+                  href="https://github.com/iamernesto14"
+                  className="group flex items-center space-x-2 hover:text-yellow-500"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Icon icon="mdi:github" color="#666" />
                   <span>Github</span>
-                  <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ernesto-anokye/"
-                className="group group flex w-fit items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon icon="mdi:linkedin" color="#666" />
-                <div className="relative">
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ernesto-anokye/"
+                  className="group flex items-center space-x-2 hover:text-yellow-500"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Icon icon="mdi:linkedin" color="#666" />
                   <span>LinkedIn</span>
-                  <span className="absolute bottom-0 left-0 h-[0.12em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>
-              <a
-                href="https://x.com/iamernesto14"
-                className="group flex items-center space-x-2"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icon icon="mdi:twitter" color="#666" />
-                <div className="relative">
+                </a>
+                <a
+                  href="https://x.com/iamernesto14"
+                  className="group flex items-center space-x-2 hover:text-yellow-500"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Icon icon="mdi:twitter" color="#666" />
                   <span>X</span>
-                  <span className="absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
-          <div className="space-y-3 ">
-            <h4 className="text-body-1 font-semibold 2xl:text-4xl">Location</h4>
-            <div className="space-y-2 text-body-2 2xl:text-3xl">
-              <p>
-                Accra, Ghana <br></br>
-                {time}
-              </p>
+          {/* Resource section */}
+          <div className="space-y-2">
+            <h4 className="text-body-1 font-semibold 2xl:text-4xl">
+              Resources
+            </h4>
+            <hr className="w-full bg-accent-200" />
+            
+            <div>
+              <button className="cursor-pointer transition duration-300 hover:text-yellow-500">
+                <a
+                  href="https://iamernesto14.github.io/CodeCompass/"
+                  target="_blank"
+                >
+                  <span className="text-xl">CodeCompass</span>
+                </a>
+              </button>
             </div>
           </div>
         </div>
