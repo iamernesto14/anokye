@@ -48,20 +48,15 @@ function MobileNav() {
 
   return (
     <div className="menu-container" ref={container}>
-      <div className="menu-bar flex items-center justify-end gap-4 py-10">
-        <div
-          className="menu-open flex h-16 w-48 cursor-pointer items-center justify-center rounded-full bg-accent-300 text-lg font-bold text-mobile-100"
-          onClick={toggleMenu}
-        >
-          <p>Let's talk</p>
-        </div>
+      <div className="menu-bar flex items-center justify-end gap-4 pb-10 pt-3">
+        
         {/* Menu button */}
-        <div
+        <button
           className="menu-open flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-mobile-100 font-bold text-accent-300"
           onClick={toggleMenu}
         >
-          <p>Menu</p>
-        </div>
+          <span>{isMenuOpen ? "Close" : "Menu"}</span>
+        </button>
       </div>
 
       <div className="menu-overlay fixed inset-0 z-50 bg-opacity-90">
@@ -75,7 +70,7 @@ function MobileNav() {
 
         
 
-        <div className="flex h-screen flex-col pt-48">
+        <div className="flex h-screen flex-col pt-36">
         <p className="mb-5 uppercase text-mobile-100">Navigation</p>
         <hr className="bg-accent-400" />
           <div className="menu-copy flex-1 mt-10">
@@ -87,22 +82,22 @@ function MobileNav() {
                   </a>
                 </div>
                 <div className="menu-link-item-holder" onClick={toggleMenu}>
-                  <a href="#" className="text-2xl">
+                  <a href="#about" className="text-2xl">
                     about
                   </a>
                 </div>
                 <div className="menu-link-item-holder" onClick={toggleMenu}>
-                  <a href="#about" className="text-2xl">
+                  <a href="#services" className="text-2xl">
                     service
                   </a>
                 </div>
                 <div className="menu-link-item-holder" onClick={toggleMenu}>
-                  <a href="#work" className="text-2xl">
+                  <a href="#works" className="text-2xl">
                     project
                   </a>
                 </div>
                 <div className="menu-link-item-holder" onClick={toggleMenu}>
-                  <a href="#work" className="text-2xl">
+                  <a href="#contact" className="text-2xl">
                     contact
                   </a>
                 </div>

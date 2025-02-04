@@ -104,13 +104,13 @@ export default function Contact() {
                   About
                 </button>
                 <button
-                  onClick={() => handleScroll("work")}
+                  onClick={() => handleScroll("works")}
                   className="cursor-pointer transition duration-300 hover:text-yellow-500"
                 >
                   Work
                 </button>
                 <button
-                  onClick={() => handleScroll("service")}
+                  onClick={() => handleScroll("services")}
                   className="cursor-pointer transition duration-300 hover:text-yellow-500"
                 >
                   Service

@@ -29,7 +29,7 @@ const App = () => {
         ScrollTrigger.create({
           trigger: heading,
           start: "top 550px",
-          end: "bottom 550px",
+          end: "bottom 650px",
           animation: gsap.to(individualHeading, {
             opacity: 1,
             y: 0,
