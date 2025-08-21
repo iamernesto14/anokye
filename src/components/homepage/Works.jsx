@@ -29,7 +29,7 @@ export default function Works({ forwardedRef }) {
           />
         </div>
         {/* Project #2 */}
-{/*         <div className="col-span-1 pt-0 md:col-span-7 md:pt-16">
+        <div className="col-span-1 pt-0 md:col-span-7 md:pt-16">
           <Projects
              link="https://iamernesto14.github.io/KitchenQuest/"
              img={kitchenQuest}
@@ -39,7 +39,7 @@ export default function Works({ forwardedRef }) {
              year="2024"
              tools="HTML • TailwindCSS • JavaScript • React.js"
           />
-        </div> */}
+        </div>
         <div className="col-span-1 pt-0 md:col-span-5 md:pt-80">
           <Projects
             link="https://iamernesto14.github.io/anokye/"
@@ -51,9 +51,9 @@ export default function Works({ forwardedRef }) {
             tools="HTML • CSS • React.js"
           />
         </div>
-{/*         <div className="col-span-1 h-fit pt-0 md:col-span-8 md:pt-20">
+        <div className="col-span-1 h-fit pt-0 md:col-span-8 md:pt-20">
           <Projects
-            link="https://ernest-countries-app.netlify.app/"
+            link="https://countries-anokye.netlify.app/"
             img={restCountries}
             alt="RestCountries project site"
             name="RestCountries"
@@ -61,8 +61,8 @@ export default function Works({ forwardedRef }) {
             year="2023"
             tools="HTML • TailwindCSS • JavaScript, React.js"
           />
-        </div> */}
-{/*         <div className="col-span-1 h-fit md:col-span-4">
+        </div>
+        <div className="col-span-1 h-fit md:col-span-4">
         <Projects
             link="https://ernest-movieapp.netlify.app/"
             img={movieImg}
@@ -73,7 +73,7 @@ export default function Works({ forwardedRef }) {
             tools="React.js • JavaScript"
           />
          
-        </div> */}
+        </div>
       </div>
     </section>
   );
